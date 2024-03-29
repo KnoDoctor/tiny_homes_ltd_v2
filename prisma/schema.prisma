@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id       String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  email    String  @unique
+  password String
+  name     String? // Name is optional, indicating a user might not necessarily be an author
+  bio      String? // Biography is optional for users who are authors
+  posts    posts[] // Relation to posts to identify if a user has authored any content
+}
+
+model posts {
+  id           String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  title        String
+  content      String
+  date_created DateTime
+  user_id      String     @db.Uuid
+  category_id  String     @db.Uuid
+  comments     comments[]
+  user         users      @relation(fields: [user_id], references: [id])
+  category     categories @relation(fields: [category_id], references: [id])
+}
+
+model comments {
+  id           String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  content      String
+  date_created DateTime
+  post_id      String   @db.Uuid
+  author_name  String // Name of the user making the comment; not necessarily a registered user
+  post         posts    @relation(fields: [post_id], references: [id])
+}
+
+model categories {
+  id          String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name        String
+  description String?
+  posts       posts[]
+}
