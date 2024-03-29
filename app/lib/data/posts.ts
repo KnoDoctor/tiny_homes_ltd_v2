@@ -38,7 +38,8 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
       select: {
         id: true,
         title: true,
-
+        user: true,
+        category: true,
         // responses: { select: { id: true, status: true } },
       },
       take: ITEMS_PER_PAGE,

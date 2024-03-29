@@ -1,5 +1,10 @@
 'use client';
-import { BiasField, SportField, UserField } from '@/app/lib/definitions';
+import {
+  BiasField,
+  CategoryField,
+  SportField,
+  UserField,
+} from '@/app/lib/definitions';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { createPost } from '@/app/lib/actions/posts';
@@ -14,7 +19,13 @@ import {
 } from '@heroicons/react/24/outline';
 import { posts } from '@prisma/client';
 
-export default function Form({ users }: { users: UserField[] }) {
+export default function Form({
+  users,
+  categories,
+}: {
+  users: UserField[];
+  categories: CategoryField[];
+}) {
   const initialState = { message: null, errors: {} };
 
   const [state, dispatch] = useFormState(createPost, initialState);
@@ -108,6 +119,41 @@ export default function Form({ users }: { users: UserField[] }) {
           <div id="study-error" aria-live="polite" aria-atomic="true">
             {state.errors?.userId &&
               state.errors.userId.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
+          </div>
+        </div>
+
+        {/* Category */}
+        <div className="mb-4">
+          <label htmlFor="category" className="mb-2 block text-sm font-medium">
+            Choose category
+          </label>
+          <div className="relative">
+            <select
+              id="category"
+              name="categoryId"
+              className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              defaultValue=""
+              // required
+              aria-describedby="category-error"
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+          </div>
+          <div id="study-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.categoryId &&
+              state.errors.categoryId.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>

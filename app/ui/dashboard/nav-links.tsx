@@ -29,14 +29,14 @@ const links = [
   },
   {
     name: 'Categories',
-    href: '/dashboard/sports',
+    href: '/dashboard/categories',
     icon: TagIcon,
   },
-  {
-    name: 'Comments',
-    href: '/dashboard/athletes',
-    icon: ChatBubbleLeftEllipsisIcon,
-  },
+  // {
+  //   name: 'Comments',
+  //   href: '/dashboard/athletes',
+  //   icon: ChatBubbleLeftEllipsisIcon,
+  // },
   {
     name: 'Users',
     href: '/dashboard/users',

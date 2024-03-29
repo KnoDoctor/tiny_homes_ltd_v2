@@ -3,6 +3,7 @@ import Breadcrumbs from '@/app/ui/breadcrumbs';
 import { fetchPosts } from '@/app/lib/data/posts';
 import { Metadata } from 'next';
 import { fetchUsers } from '@/app/lib/data/users';
+import { fetchCategories } from '@/app/lib/data/categories';
 // import { fetchSports } from '@/app/lib/data/sports';
 // import { fetchBiases } from '@/app/lib/data/biases';
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const users = await fetchUsers();
+  const categories = await fetchCategories();
   // const biases = await fetchBiases();
 
   return (
@@ -26,7 +28,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form users={users} />
+      <Form users={users} categories={categories} />
     </main>
   );
 }

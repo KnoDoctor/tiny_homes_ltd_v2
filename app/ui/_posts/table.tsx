@@ -37,7 +37,7 @@ export default async function PostsTable({
                           <p>{post.name}</p>
                         </div> */}
                       </div>
-                      <p className="text-sm text-gray-500">{post.name}</p>
+                      <p className="text-sm text-gray-500">{post.title}</p>
                     </div>
                     <div className="flex justify-end gap-2">
                       <UpdatePost id={post.id} />
@@ -47,15 +47,15 @@ export default async function PostsTable({
                   <div className="flex w-full items-center justify-between border-b py-5">
                     <div className="flex w-1/2 flex-col">
                       <p className="text-xs">Pending</p>
-                      <p className="font-medium">{post.name}</p>
+                      <p className="font-medium">{post.title}</p>
                     </div>
                     <div className="flex w-1/2 flex-col">
                       <p className="text-xs">Paid</p>
-                      <p className="font-medium">{post.name}</p>
+                      <p className="font-medium">{post.title}</p>
                     </div>
                   </div>
                   <div className="pt-4 text-sm">
-                    <p>{post.name} invoices</p>
+                    <p>{post.title} invoices</p>
                   </div>
                 </div>
               ))}
@@ -63,25 +63,25 @@ export default async function PostsTable({
             <table className="hidden min-w-full rounded-md text-gray-900 md:table">
               <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                 <tr>
-                  <th scope="col" className="px-3 py-5 font-medium">
+                  {/* <th scope="col" className="px-3 py-5 font-medium">
                     Status
-                  </th>
+                  </th> */}
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                    Name
+                    Title
                   </th>
                   <th scope="col" className="px-3 py-5 font-medium">
-                    Sport
+                    Author
                   </th>
 
                   <th scope="col" className="px-3 py-5 font-medium">
-                    Total Participants
+                    Category
                   </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
+                  {/*          <th scope="col" className="px-3 py-5 font-medium">
                     Total In Progress
                   </th>
                   <th scope="col" className="px-4 py-5 font-medium">
                     Total Complete
-                  </th>
+                  </th> */}
                 </tr>
               </thead>
 
@@ -91,35 +91,35 @@ export default async function PostsTable({
                     key={post.id}
                     className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
                   >
-                    <td className="whitespace-nowrap px-3 py-3">
+                    {/* <td className="whitespace-nowrap px-3 py-3">
                       <PostStatus status={post.status} />
-                    </td>
+                    </td> */}
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                       <div className="flex items-center gap-3">
                         {/* <Image
                           src={post.image_url}
                           className="rounded-full"
-                          alt={`${post.name}'s profile picture`}
+                          alt={`${post.title}'s profile picture`}
                           width={28}
                           height={28}
                         /> */}
-                        <p>{post.name}</p>
+                        <p>{post.title}</p>
                       </div>
                     </td>
 
                     <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-                      {post.sport.name}
+                      {post.user.name}
                     </td>
 
                     <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-                      {post.total_participants}
+                      {post.category.name}
                     </td>
-                    <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+                    {/*      <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                       {post.total_in_progress}
                     </td>
                     <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                       {post.total_complete}
-                    </td>
+                    </td> */}
 
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                       <div className="flex justify-end gap-3">

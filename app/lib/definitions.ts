@@ -107,6 +107,10 @@ export type SportField = {
   id: string;
   name: string;
 };
+export type CategoryField = {
+  id: string;
+  name: string;
+};
 export type BiasStatementField = {
   id: string;
   name: string;
