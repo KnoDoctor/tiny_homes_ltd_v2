@@ -12,7 +12,13 @@ import {
   ClockIcon,
   DocumentCheckIcon,
 } from '@heroicons/react/24/outline';
-import { BiasField, ParticipantField, SportField } from '@/app/lib/definitions';
+import {
+  BiasField,
+  CategoryField,
+  ParticipantField,
+  SportField,
+  UserField,
+} from '@/app/lib/definitions';
 import {
   CreateParticipant,
   DeleteParticipant,
@@ -21,14 +27,12 @@ import {
 
 export default function EditPostForm({
   post,
-  sports,
-  biases,
-  participants,
+  users,
+  categories,
 }: {
   post: any;
-  sports: SportField[];
-  biases: BiasField[];
-  participants: ParticipantField[];
+  users: UserField[];
+  categories: CategoryField[];
 }) {
   const initialState = { message: null, errors: {} };
   const updatePostWithId = updatePost.bind(null, post.id);
@@ -48,29 +52,58 @@ export default function EditPostForm({
           <Button type="submit">Save Post</Button>
         </div>
         <div className="mt-2 rounded-md bg-gray-50 p-4 md:p-6">
-          {/* Post Name */}
+          {/* Post Title */}
           <div className="mb-4">
-            <label htmlFor="name" className="mb-2 block text-sm font-medium">
-              Post Name
+            <label htmlFor="title" className="mb-2 block text-sm font-medium">
+              Post Title
             </label>
             <div className="relative mt-2 rounded-md">
               <div className="relative">
                 <input
-                  id="name"
-                  name="name"
+                  id="title"
+                  name="title"
                   type="text"
-                  placeholder="Enter post's full name"
+                  placeholder="Enter post's full title"
                   className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                   aria-describedby="amount-error"
-                  defaultValue={post.name}
+                  defaultValue={post.title}
                   // required
                 />
                 <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
               </div>
             </div>
             <div id="post-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.name &&
-                state.errors.name.map((error: string) => (
+              {state.errors?.title &&
+                state.errors.title.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
+            </div>
+          </div>
+          {/* Post Content */}
+          <div className="mb-4">
+            <label htmlFor="content" className="mb-2 block text-sm font-medium">
+              Post Content
+            </label>
+            <div className="relative mt-2 rounded-md">
+              <div className="relative">
+                <input
+                  id="content"
+                  name="content"
+                  type="text"
+                  placeholder="Enter post's full content"
+                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  aria-describedby="amount-error"
+                  defaultValue={post.content}
+                  // required
+                />
+                <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+              </div>
+            </div>
+            <div id="post-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.content &&
+                state.errors.content.map((error: string) => (
                   <p className="mt-2 text-sm text-red-500" key={error}>
                     {error}
                   </p>
@@ -78,34 +111,34 @@ export default function EditPostForm({
             </div>
           </div>
 
-          {/* Sport */}
+          {/* User */}
           <div className="mb-4">
-            <label htmlFor="sport" className="mb-2 block text-sm font-medium">
-              Choose sport
+            <label htmlFor="user" className="mb-2 block text-sm font-medium">
+              Choose user
             </label>
             <div className="relative">
               <select
-                id="sport"
-                name="sportId"
+                id="user"
+                name="userId"
                 className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-                defaultValue={post.sport_id}
+                defaultValue={post.userId}
                 // required
-                aria-describedby="sport-error"
+                aria-describedby="user-error"
               >
                 <option value="" disabled>
-                  Select a sport
+                  Select a user
                 </option>
-                {sports.map((sport) => (
-                  <option key={sport.id} value={sport.id}>
-                    {sport.name}
+                {users.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {user.name}
                   </option>
                 ))}
               </select>
               <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
             </div>
-            <div id="sport-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.sportId &&
-                state.errors.sportId.map((error: string) => (
+            <div id="study-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.userId &&
+                state.errors.userId.map((error: string) => (
                   <p className="mt-2 text-sm text-red-500" key={error}>
                     {error}
                   </p>
@@ -113,34 +146,37 @@ export default function EditPostForm({
             </div>
           </div>
 
-          {/* Bias */}
+          {/* Category */}
           <div className="mb-4">
-            <label htmlFor="bias" className="mb-2 block text-sm font-medium">
-              Choose Bias
+            <label
+              htmlFor="category"
+              className="mb-2 block text-sm font-medium"
+            >
+              Choose category
             </label>
             <div className="relative">
               <select
-                id="bias"
-                name="biasId"
+                id="category"
+                name="categoryId"
                 className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-                defaultValue={post.bias_id}
+                defaultValue={post.categoryId}
                 // required
-                aria-describedby="bias-error"
+                aria-describedby="category-error"
               >
                 <option value="" disabled>
-                  Select a bias
+                  Select a category
                 </option>
-                {biases.map((bias) => (
-                  <option key={bias.id} value={bias.id}>
-                    {bias.name}
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
                   </option>
                 ))}
               </select>
               <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
             </div>
-            <div id="bias-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.biasId &&
-                state.errors.biasId.map((error: string) => (
+            <div id="study-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.categoryId &&
+                state.errors.categoryId.map((error: string) => (
                   <p className="mt-2 text-sm text-red-500" key={error}>
                     {error}
                   </p>
@@ -148,7 +184,7 @@ export default function EditPostForm({
             </div>
           </div>
 
-          {/* Post Status */}
+          {/* Post Status
           <fieldset>
             <legend className="mb-2 block text-sm font-medium">
               Set the post status
@@ -249,78 +285,9 @@ export default function EditPostForm({
                   </p>
                 ))}
             </div>
-          </fieldset>
+          </fieldset> */}
         </div>
       </form>
-      <div className="mt-4 w-1/2 rounded-md bg-gray-50 p-4 md:p-6">
-        <table className="hidden min-w-full rounded-md text-gray-900 md:table">
-          <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
-            <tr>
-              <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                Participants
-              </th>
-              <th className="h-1 whitespace-nowrap py-3 pl-6 pr-3">
-                <div className="flex justify-end gap-3">
-                  <CreateParticipant
-                    disableText
-                    searchParams={[
-                      { key: 'postId', value: post.id },
-                      {
-                        key: 'returnPath',
-                        value: `/dashboard/posts/${post.id}/edit`,
-                      },
-                    ]}
-                  />
-                </div>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="bg-white">
-            {participants
-              .filter((participant) => participant.post.id === post.id)
-              .map((participant) => (
-                <tr
-                  key={participant.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
-                >
-                  <td className=" py-3 pl-6 pr-3">
-                    <div className="flex items-center gap-3">
-                      <p>{participant.user.name}</p>
-                    </div>
-                    <div className="mt-2 flex items-center">
-                      <p className="hidden text-xs text-gray-500 sm:block">
-                        {participant.is_control
-                          ? 'Control Group'
-                          : 'Test Group'}
-                      </p>
-                    </div>
-                  </td>
-
-                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
-                    <div className="flex justify-end gap-3">
-                      {/* <CheckCircleIcon/> */}
-                      <UpdateParticipant
-                        searchParams={[
-                          {
-                            key: 'returnPath',
-                            value: `/dashboard/posts/${post.id}/edit`,
-                          },
-                        ]}
-                        id={participant.id}
-                      />
-                      <DeleteParticipant id={participant.id} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-        {/* <textarea
-            className="h-64 w-full rounded-md border border-gray-300 p-2"
-            placeholder="Enter your bias statement here..."
-          ></textarea> */}
-      </div>
     </>
   );
 }

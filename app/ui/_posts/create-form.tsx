@@ -195,7 +195,7 @@ export default function Form({
               ))}
           </div>
         </div> */}
-        {/* Post Status */}
+        {/* Post Status
         <fieldset>
           <legend className="mb-2 block text-sm font-medium">
             Set the post status
@@ -284,14 +284,14 @@ export default function Form({
             </div>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.content &&
-              state.errors.content.map((error: string) => (
+            {state.errors?.status &&
+              state.errors.status.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
               ))}
           </div>
-        </fieldset>
+        </fieldset> */}
       </div>
 
       {/* Submit*/}

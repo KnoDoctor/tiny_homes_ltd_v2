@@ -84,7 +84,7 @@ export async function createPost(prevState: State, formData: FormData) {
 }
 
 // Use Zod to update the expected types
-const UpdatePost = PostFormSchema.omit({ id: true });
+const UpdatePost = PostFormSchema.omit({ id: true, date_created: true });
 export async function updatePost(
   id: string,
   prevState: State,

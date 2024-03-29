@@ -4,9 +4,8 @@ import { fetchPostById } from '@/app/lib/data/posts';
 
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { fetchSports } from '@/app/lib/data/sports';
-import { fetchBiases } from '@/app/lib/data/biases';
-import { fetchParticipants } from '@/app/lib/data/participants';
+import { fetchUsers } from '@/app/lib/data/users';
+import { fetchCategories } from '@/app/lib/data/categories';
 
 export const metadata: Metadata = {
   title: 'Edit Post',
@@ -15,11 +14,10 @@ export const metadata: Metadata = {
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  const [post, sports, biases, participants] = await Promise.all([
+  const [post, users, categories] = await Promise.all([
     fetchPostById(id),
-    fetchSports(),
-    fetchBiases(),
-    fetchParticipants(),
+    fetchUsers(),
+    fetchCategories(),
   ]);
 
   if (!post) {
@@ -38,12 +36,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <Form
-        post={post}
-        sports={sports}
-        biases={biases}
-        participants={participants}
-      />
+      <Form post={post} users={users} categories={categories} />
     </main>
   );
 }

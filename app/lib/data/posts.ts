@@ -38,6 +38,7 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
       select: {
         id: true,
         title: true,
+        content: true,
         user: true,
         category: true,
         // responses: { select: { id: true, status: true } },
@@ -133,6 +134,7 @@ export async function fetchPostById(id: string) {
       select: {
         id: true,
         title: true,
+        content: true,
       },
     });
 
