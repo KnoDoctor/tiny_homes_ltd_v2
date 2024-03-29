@@ -7,8 +7,11 @@ import {
   DocumentDuplicateIcon,
   BoltIcon,
   BeakerIcon,
+  NewspaperIcon,
+  TagIcon,
   ClipboardDocumentListIcon,
   ChatBubbleBottomCenterTextIcon,
+  ChatBubbleLeftEllipsisIcon,
   ScaleIcon,
 } from '@heroicons/react/24/outline';
 
@@ -20,39 +23,19 @@ import clsx from 'clsx';
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   {
-    name: 'Studies',
+    name: 'Posts',
     href: '/dashboard/studies',
-    icon: BeakerIcon,
+    icon: NewspaperIcon,
   },
   {
-    name: 'Sports',
+    name: 'Categories',
     href: '/dashboard/sports',
-    icon: BoltIcon,
+    icon: TagIcon,
   },
   {
-    name: 'Athletes',
+    name: 'Comments',
     href: '/dashboard/athletes',
-    icon: UserGroupIcon,
-  },
-  {
-    name: 'Biases',
-    href: '/dashboard/biases',
-    icon: ScaleIcon,
-  },
-  {
-    name: 'Bias Statements',
-    href: '/dashboard/bias-statements',
-    icon: ChatBubbleBottomCenterTextIcon,
-  },
-  {
-    name: 'Participants',
-    href: '/dashboard/participants',
-    icon: UserGroupIcon,
-  },
-  {
-    name: 'Responses',
-    href: '/dashboard/responses',
-    icon: ClipboardDocumentListIcon,
+    icon: ChatBubbleLeftEllipsisIcon,
   },
   {
     name: 'Users',

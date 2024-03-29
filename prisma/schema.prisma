@@ -8,12 +8,13 @@ datasource db {
 }
 
 model users {
-  id       String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  email    String  @unique
-  password String
-  name     String? // Name is optional, indicating a user might not necessarily be an author
-  bio      String? // Biography is optional for users who are authors
-  posts    posts[] // Relation to posts to identify if a user has authored any content
+  id        String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  email     String     @unique
+  password  String
+  name      String? // Optional name field for users
+  biography String? // Optional biography for users who are authors
+  posts     posts[] // Relation to posts for content authorship
+  comments  comments[] // Relation to comments for user-generated comments
 }
 
 model posts {
@@ -33,8 +34,9 @@ model comments {
   content      String
   date_created DateTime
   post_id      String   @db.Uuid
-  author_name  String // Name of the user making the comment; not necessarily a registered user
+  user_id      String   @db.Uuid // New relation to users
   post         posts    @relation(fields: [post_id], references: [id])
+  user         users    @relation(fields: [user_id], references: [id])
 }
 
 model categories {

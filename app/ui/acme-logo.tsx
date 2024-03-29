@@ -1,4 +1,4 @@
-import { GlobeAltIcon } from '@heroicons/react/24/outline';
+import { HomeModernIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 
 export default function AcmeLogo() {
@@ -6,8 +6,8 @@ export default function AcmeLogo() {
     <div
       className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
     >
-      <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[44px]">TYP</p>
+      <HomeModernIcon className="h-12 w-12 rotate-[15deg]" />
+      <p className="text-[44px]">Tiny Homes LTD.</p>
     </div>
   );
 }
