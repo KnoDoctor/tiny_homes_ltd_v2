@@ -129,7 +129,7 @@ export type AthleteField = {
 };
 export type UserField = {
   id: string;
-  name: string;
+  name: string | null;
 };
 
 export type InvoiceForm = {

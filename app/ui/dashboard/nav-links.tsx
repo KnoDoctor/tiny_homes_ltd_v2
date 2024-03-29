@@ -24,7 +24,7 @@ const links = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Posts',
-    href: '/dashboard/studies',
+    href: '/dashboard/posts',
     icon: NewspaperIcon,
   },
   {
