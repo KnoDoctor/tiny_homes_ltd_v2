@@ -13,11 +13,13 @@ import {
   ChatBubbleBottomCenterTextIcon,
   ChatBubbleLeftEllipsisIcon,
   ScaleIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { lato } from './fonts';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
@@ -42,11 +44,11 @@ const links = [
     href: '/contact-us',
     icon: UsersIcon,
   },
-  // {
-  //   name: 'Invoices',
-  //   href: '/dashboard/invoices',
-  //   icon: DocumentDuplicateIcon,
-  // },
+  {
+    name: '',
+    href: '/search',
+    icon: MagnifyingGlassIcon,
+  },
   // { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
 ];
 
@@ -54,12 +56,12 @@ export default function NavLinks() {
   const pathname = usePathname();
   return (
     <>
-      {links.map((link) => {
+      {links.map((link, i, arr) => {
         const LinkIcon = link.icon;
         return (
           <div
             key={link.name}
-            className="flex flex-col items-center justify-center bg-stone-800"
+            className={`${lato.className} flex flex-col items-center justify-center bg-stone-800`}
           >
             <Link
               href={link.href}
@@ -73,10 +75,14 @@ export default function NavLinks() {
                 },
               )}
             >
-              {/* <LinkIcon className="w-6" /> */}
-              <p className="hidden md:block">{link.name}</p>
+              {link.name === '' ? <LinkIcon className="w-4" /> : <></>}
+              <p className={'hidden md:block'}>{link.name}</p>
             </Link>
-            <hr className="my-1 h-px w-16  border-stone-500 bg-stone-500 dark:bg-gray-700" />
+            {i + 1 === arr.length ? (
+              <></>
+            ) : (
+              <hr className="my-1 h-px w-16  border-stone-500 bg-stone-500 dark:bg-gray-700" />
+            )}
           </div>
         );
       })}

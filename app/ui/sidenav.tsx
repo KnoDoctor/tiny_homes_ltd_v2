@@ -18,14 +18,6 @@ export default function SideNav() {
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0">
         <NavLinks />
-        <div
-          className={
-            'flex h-[48px] grow items-center justify-center gap-2 bg-stone-800 p-3 text-sm font-medium uppercase hover:bg-stone-800 hover:text-stone-200 md:flex-none md:justify-center md:p-2 md:px-3'
-          }
-        >
-          <MagnifyingGlassIcon className="w-4 text-stone-500" />
-          {/* <p className="hidden md:block">{link.name}</p> */}
-        </div>
         <div className="hidden h-auto w-full grow  bg-stone-800 md:block"></div>
         {/* <form
           action={async () => {
