@@ -12,6 +12,8 @@ export async function fetchUsers() {
         id: true,
         name: true,
         email: true,
+        posts: true,
+        comments: true,
       },
     });
 
@@ -47,6 +49,8 @@ export async function fetchFilteredUsers(query: string, currentPage: number) {
         id: true,
         name: true,
         email: true,
+        posts: true,
+        comments: true,
       },
       take: ITEMS_PER_PAGE,
       skip: offset,
@@ -126,6 +130,8 @@ export async function fetchUserById(id: string) {
         name: true,
         email: true,
         password: true,
+        posts: true,
+        comments: true,
         // If you need to fetch related invoices data, you can include it here
         // invoices: {
         //   select: {

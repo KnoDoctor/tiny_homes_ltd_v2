@@ -12,6 +12,7 @@ export default async function CategoriesTable({
   currentPage: number;
 }) {
   const categories = await fetchFilteredCategories(query, currentPage);
+
   return (
     <div className="mt-6 flow-root">
       <div className="overflow-x-auto">
@@ -41,6 +42,9 @@ export default async function CategoriesTable({
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                     Name
                   </th>
+                  <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                    Posts
+                  </th>
                 </tr>
               </thead>
 
@@ -62,7 +66,9 @@ export default async function CategoriesTable({
                         <p>{category.name}</p>
                       </div>
                     </td>
-
+                    <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+                      {category.posts.length}
+                    </td>
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                       <div className="flex justify-end gap-3">
                         <UpdateCategory id={category.id} />

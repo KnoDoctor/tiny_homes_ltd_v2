@@ -10,6 +10,7 @@ export async function fetchCategories() {
       select: {
         id: true,
         name: true,
+        posts: true,
       },
     });
 
@@ -41,6 +42,7 @@ export async function fetchFilteredCategories(
       select: {
         id: true,
         name: true,
+        posts: true,
         // athletes: {
         //   select: {
         //     id: true,
@@ -114,6 +116,7 @@ export async function fetchCategoryById(id: string) {
       select: {
         id: true,
         name: true,
+        posts: true,
       },
     });
 

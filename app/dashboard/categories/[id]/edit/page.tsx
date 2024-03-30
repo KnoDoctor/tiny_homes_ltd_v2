@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  const sport = await fetchCategoryById(id);
+  const category = await fetchCategoryById(id);
 
-  if (!sport) {
+  if (!category) {
     notFound();
   }
 
@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <Form sport={sport} />
+      <Form category={category} />
     </main>
   );
 }

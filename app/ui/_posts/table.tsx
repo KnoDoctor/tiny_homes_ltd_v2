@@ -76,6 +76,9 @@ export default async function PostsTable({
                   <th scope="col" className="px-3 py-5 font-medium">
                     Category
                   </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Date Created
+                  </th>
                   {/*          <th scope="col" className="px-3 py-5 font-medium">
                     Total In Progress
                   </th>
@@ -113,6 +116,9 @@ export default async function PostsTable({
 
                     <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                       {post.category.name}
+                    </td>
+                    <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+                      {post.date_created.toISOString().split('T')[0]}
                     </td>
                     {/*      <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                       {post.total_in_progress}

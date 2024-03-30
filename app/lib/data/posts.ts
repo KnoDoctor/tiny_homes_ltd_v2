@@ -10,6 +10,7 @@ export async function fetchPosts() {
       select: {
         id: true,
         title: true,
+        date_created: true,
       },
     });
 
@@ -39,6 +40,7 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
         id: true,
         title: true,
         content: true,
+        date_created: true,
         user: true,
         category: true,
         // responses: { select: { id: true, status: true } },
@@ -135,6 +137,7 @@ export async function fetchPostById(id: string) {
         id: true,
         title: true,
         content: true,
+        date_created: true,
       },
     });
 
