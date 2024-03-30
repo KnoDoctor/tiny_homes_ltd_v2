@@ -2,6 +2,7 @@ import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
 import SideNav from '../ui/sidenav';
+import FeaturedPostsCarousel from '../ui/main/featured-posts-carousel';
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +23,10 @@ export default function RootLayout({
       <div className="w-full flex-none md:w-64">
         <SideNav />
       </div>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+      <div className="flex-grow md:overflow-y-auto ">
+        <FeaturedPostsCarousel />
+        {children}
+      </div>
     </div>
   );
 }
