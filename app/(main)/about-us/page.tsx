@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Breadcrumbs from '@/app/ui/breadcrumbs';
+import Breadcrumbs from '@/app/ui/main/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 const AboutUs = () => {
   return (
-    <div className="p-8">
+    <div className="px-8 py-2">
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Home', href: '/' },
+          // { label: 'Home', href: '/' },
           {
             label: 'About Us',
             href: '/about-us',

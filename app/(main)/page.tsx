@@ -1,14 +1,87 @@
 import AcmeLogo from '@/app/ui/acme-logo';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import {
+  ArrowRightIcon,
+  PaperAirplaneIcon,
+  UserPlusIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { lusitana, inter } from '@/app/ui/fonts';
+import { lusitana, inter, lato } from '@/app/ui/fonts';
 import Image from 'next/image';
+import Breadcrumbs from '../ui/main/breadcrumbs';
+import clsx from 'clsx';
+import { Button } from '../ui/button';
+import Sidebar from '../ui/main/sidebar';
+import FeaturedPost from '../ui/main/feature-post';
+import SubFeaturedPost from '../ui/main/sub-featured-post';
+
+const samplePosts = [
+  {
+    title: 'A Frame Design Provides A Quiet Space in Lake Tahoe',
+    imageId: 1,
+    category: 'Nature',
+  },
+  {
+    title: 'The Nags Head Packs Modern Luxury Into a Compact THOW',
+    imageId: 2,
+    category: 'Design',
+  },
+  {
+    title: 'The Braxton Offers A Truly Modern Tiny Living Experience',
+    imageId: 3,
+    category: 'Design',
+  },
+  {
+    title: 'Downsizing Turns To Upgrading With This Stunning Home',
+    imageId: 4,
+    category: 'Nature',
+  },
+  {
+    title: 'This Tiny House on Wheels Offers A Modern and Masculine Sanctuary',
+    imageId: 5,
+    category: 'Design',
+  },
+];
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        <AcmeLogo />
+    <main className="py-2 pl-8">
+      <Breadcrumbs breadcrumbs={[]} />
+      <div className="flex">
+        <div className="flex w-9/12 justify-center">
+          <div className="xl:w-full 2xl:w-10/12">
+            <div className="flex">
+              <div className="relative w-7/12 pr-3">
+                <FeaturedPost />
+              </div>
+              <div className="relative w-5/12">
+                {samplePosts.map((post: { title: string; imageId: number }) => {
+                  return <SubFeaturedPost key={post.imageId} post={post} />;
+                })}
+              </div>
+            </div>
+            <div className="mt-16 w-full">
+              <div className="mb-4 w-full">
+                <h1 className={clsx(lato.className, 'mb-2 text-3xl font-bold')}>
+                  Your source for the latest trends and innovations across the
+                  tiny homes landscape.
+                </h1>
+                <h1 className={clsx(lato.className, 'text-1xl mb-4 font-bold')}>
+                  Sign up today to start engaging with the Tiny Homes LTD.
+                  community and start making you personal tiny home journey a
+                  reality.
+                </h1>
+                <Link href="/login" className="mt-4">
+                  <Button className="mt-4 ">
+                    Get Started
+                    <UserPlusIcon className="ml-4 h-5 w-5 text-gray-50" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Sidebar />
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
