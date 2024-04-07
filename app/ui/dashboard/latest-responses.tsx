@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 
-import { fetchLatestResponses } from '@/app/lib/data/responses';
-import ResponseStatus from '../_responses/status';
+// import { fetchLatestResponses } from '@/app/lib/data/responses';
+// import ResponseStatus from '../_responses/status';
 
 export default async function LatestResponses() {
-  const latestResponses = await fetchLatestResponses();
+  // const latestResponses = await fetchLatestResponses();
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
@@ -17,7 +17,7 @@ export default async function LatestResponses() {
         {/* NOTE: comment in this code when you get to this point in the course */}
 
         <div className="bg-white px-6">
-          {latestResponses.map((response, i) => {
+          {/* {latestResponses.map((response, i) => {
             return (
               <div
                 key={response.id}
@@ -35,15 +35,15 @@ export default async function LatestResponses() {
                     className="mr-4 rounded-full"
                     width={32}
                     height={32}
-                  /> */}
+                  /> 
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
                       {response.participant.user.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
                       {response.participant.study.name}
-                      {/* |{' '}
-                      {response?.date_sent?.toISOString().split('T')[0]} */}
+                       |{' '}
+                      {response?.date_sent?.toISOString().split('T')[0]} 
                     </p>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ export default async function LatestResponses() {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
         <div className="flex items-center pb-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />

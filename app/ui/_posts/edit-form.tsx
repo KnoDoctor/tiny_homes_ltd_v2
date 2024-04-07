@@ -19,11 +19,6 @@ import {
   SportField,
   UserField,
 } from '@/app/lib/definitions';
-import {
-  CreateParticipant,
-  DeleteParticipant,
-  UpdateParticipant,
-} from '../_participants/buttons';
 
 export default function EditPostForm({
   post,
