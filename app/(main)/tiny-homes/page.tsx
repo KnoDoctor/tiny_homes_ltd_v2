@@ -26,19 +26,8 @@ const TinyHomes = () => {
       <div className="flex">
         <div className="flex w-9/12 justify-center">
           <div className="xl:w-full 2xl:w-10/12">
-            <div className="relative h-96 w-full">
-              <Image
-                src="/homes/8.jpg"
-                fill
-                alt="Feature Post 2"
-                objectFit="cover"
-              />
-            </div>
             <h2
-              className={clsx(
-                lusitana.className,
-                'mt-4 flex text-xl md:text-3xl',
-              )}
+              className={clsx(lusitana.className, 'flex text-xl md:text-3xl')}
             >
               What are tiny homes?
             </h2>
@@ -49,6 +38,14 @@ const TinyHomes = () => {
               water. Now imagine you could build this home yourself without
               going into debt for the next 30 or more years. Sound appealing?
             </p>
+            <div className="relative mt-4 h-96 w-full">
+              <Image
+                src="/homes/8.jpg"
+                fill
+                alt="Feature Post 2"
+                objectFit="cover"
+              />
+            </div>
             <p className={clsx(lato.className, 'text-md mt-4 flex md:text-lg')}>
               Rapidly growing in popularity over the last twenty years, tiny
               homes are starting to pop up all around the world. As more people

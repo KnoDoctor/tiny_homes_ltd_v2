@@ -6,13 +6,13 @@ import Image from 'next/image';
 
 const FeaturedPost = () => {
   return (
-    <div className="md:w-4/7 relative  mb-4 block flex w-full flex-col rounded p-4 lg:mb-0 lg:p-0">
+    <div className="md:w-4/7 relative  mb-4 block flex w-full flex-col p-4 lg:mb-0 lg:p-0">
       <div className="relative h-64">
         <Image
           src="/homes/6.jpg"
           alt="hero-image"
           fill
-          className="h-64 w-full rounded-md object-cover"
+          className="h-64 w-full  object-cover"
         />
       </div>
       <div className="">

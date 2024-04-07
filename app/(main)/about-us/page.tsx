@@ -27,12 +27,9 @@ const AboutUs = () => {
         <div className="flex w-9/12 justify-center">
           <div className="xl:w-full 2xl:w-10/12">
             <h2
-              className={clsx(
-                lusitana.className,
-                'mt-4 flex text-xl md:text-3xl',
-              )}
+              className={clsx(lusitana.className, 'flex text-xl md:text-3xl')}
             >
-              About Us
+              Learn about Tiny Homes LTD.
             </h2>
             <p className={clsx(lato.className, 'text-md mt-4 flex md:text-lg')}>
               Tiny Homes LTD. stands as a beacon for those who share a profound
