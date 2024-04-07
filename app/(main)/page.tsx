@@ -14,32 +14,43 @@ import { Button } from '../ui/button';
 import Sidebar from '../ui/main/sidebar';
 import FeaturedPost from '../ui/main/feature-post';
 import SubFeaturedPost from '../ui/main/sub-featured-post';
+import StandarPost from '../ui/main/standard-post';
 
 const samplePosts = [
   {
     title: 'A Frame Design Provides A Quiet Space in Lake Tahoe',
     imageId: 1,
     category: 'Nature',
+    author: 'Jeff Barfield',
+    createdOn: 'April 4, 2024',
   },
   {
     title: 'The Nags Head Packs Modern Luxury Into a Compact THOW',
     imageId: 2,
     category: 'Design',
+    author: 'Jeff Barfield',
+    createdOn: 'April 4, 2024',
   },
   {
     title: 'The Braxton Offers A Truly Modern Tiny Living Experience',
     imageId: 3,
     category: 'Design',
+    author: 'Jeff Barfield',
+    createdOn: 'April 4, 2024',
   },
   {
     title: 'Downsizing Turns To Upgrading With This Stunning Home',
     imageId: 4,
     category: 'Nature',
+    author: 'Jeff Barfield',
+    createdOn: 'April 4, 2024',
   },
   {
     title: 'This Tiny House on Wheels Offers A Modern and Masculine Sanctuary',
     imageId: 5,
     category: 'Design',
+    author: 'Jeff Barfield',
+    createdOn: 'April 4, 2024',
   },
 ];
 
@@ -49,18 +60,30 @@ export default function Page() {
       <Breadcrumbs breadcrumbs={[]} />
       <div className="flex">
         <div className="flex w-9/12 justify-center">
-          <div className="xl:w-full 2xl:w-10/12">
-            <div className="flex">
-              <div className="relative w-7/12 pr-3">
+          <div className="w-10/12">
+            <div className="mb-8 flex flex-col 2xl:flex-row">
+              <div className="relative w-full pr-3 2xl:w-7/12">
                 <FeaturedPost />
               </div>
-              <div className="relative w-5/12">
+              <div className="relative hidden w-full 2xl:flex 2xl:w-5/12 2xl:flex-col ">
                 {samplePosts.map((post: { title: string; imageId: number }) => {
                   return <SubFeaturedPost key={post.imageId} post={post} />;
                 })}
               </div>
+              <div className="relative mt-8 flex w-full flex-col 2xl:hidden 2xl:w-5/12">
+                {samplePosts.map((post: { title: string; imageId: number }) => {
+                  return <StandarPost key={post.imageId} post={post} />;
+                })}
+              </div>
             </div>
-            <div className="mt-16 w-full">
+            <div className="my-8 flex flex-col">
+              <div className="relative w-full ">
+                {samplePosts.map((post: { title: string; imageId: number }) => {
+                  return <StandarPost key={post.imageId} post={post} />;
+                })}
+              </div>
+            </div>
+            <div className="my-8 w-full">
               <div className="mb-4 w-full">
                 <h1 className={clsx(lato.className, 'mb-2 text-3xl font-bold')}>
                   Your source for the latest trends and innovations across the
