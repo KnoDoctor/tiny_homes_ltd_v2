@@ -15,6 +15,7 @@ import Sidebar from '../ui/main/sidebar';
 import FeaturedPost from '../ui/main/feature-post';
 import SubFeaturedPost from '../ui/main/sub-featured-post';
 import StandarPost from '../ui/main/standard-post';
+import { fetchPosts } from '../lib/data/posts';
 
 const samplePosts = [
   {
@@ -54,20 +55,21 @@ const samplePosts = [
   },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const posts = await fetchPosts();
   return (
-    <main className="py-2 pl-8">
+    <main className="py-2">
       <Breadcrumbs breadcrumbs={[]} />
       <div className="flex">
-        <div className="flex w-9/12 justify-center">
-          <div className="w-10/12">
+        <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">
+          <div className="w-full 2xl:w-10/12">
             <div className="mb-8 flex flex-col 2xl:flex-row">
               <div className="relative w-full pr-3 2xl:w-7/12">
                 <FeaturedPost />
               </div>
               <div className="relative hidden w-full 2xl:flex 2xl:w-5/12 2xl:flex-col ">
-                {samplePosts.map((post: { title: string; imageId: number }) => {
-                  return <SubFeaturedPost key={post.imageId} post={post} />;
+                {posts.map((post) => {
+                  return <SubFeaturedPost key={post.title} post={post} />;
                 })}
               </div>
               <div className="relative mt-8 flex w-full flex-col 2xl:hidden 2xl:w-5/12">

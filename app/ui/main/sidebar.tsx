@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 const Sidebar = () => {
   return (
-    <div className="w-3/12">
+    <div className="hidden w-4/12 lg:block 2xl:w-3/12">
       <div className="h-full w-full bg-stone-100 px-8 py-8 ">
         <div className="w-full 2xl:w-10/12 ">
           <h2

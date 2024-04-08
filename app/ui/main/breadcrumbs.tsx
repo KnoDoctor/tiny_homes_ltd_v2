@@ -17,8 +17,8 @@ export default function Breadcrumbs({
 }) {
   return (
     <div className="flex">
-      <div className="flex w-9/12 2xl:justify-center">
-        <div className="xl:w-full 2xl:w-10/12">
+      <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">
+        <div className="w-full 2xl:w-10/12">
           <nav aria-label="Breadcrumb" className="mb-6 block">
             <ol
               className={clsx(lusitana.className, 'flex text-xl md:text-2xl')}
