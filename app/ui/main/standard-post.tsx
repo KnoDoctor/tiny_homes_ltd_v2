@@ -6,7 +6,7 @@ import React from 'react';
 
 const StandarPost = ({ post }: { post: PostField }) => {
   return (
-    <Link href="/read" className="text-sm text-gray-600">
+    <Link href="/read">
       <div className="mb-4 flex h-48 w-full rounded md:flex-row">
         <div className="relative h-48 w-4/12">
           <Image

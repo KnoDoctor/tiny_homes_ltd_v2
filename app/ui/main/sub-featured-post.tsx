@@ -18,7 +18,7 @@ const SubFeaturedPost = ({ post }: { post: PostField }) => {
           <span className="hidden text-xs text-green-700 md:block">
             {post.category.name}
           </span>
-          <div className="text-md mb-2 font-semibold text-gray-800 md:mt-0">
+          <div className="text-sm font-semibold text-gray-800">
             {post.title}
           </div>
           <p className="block p-2 pl-0 pt-1 text-sm text-gray-600 md:hidden">

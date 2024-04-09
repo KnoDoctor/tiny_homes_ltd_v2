@@ -12,20 +12,20 @@ export const metadata: Metadata = {
 };
 const ContactUs = () => {
   return (
-    <main className="py-2 pl-8">
+    <main className="py-2">
       <Breadcrumbs
         breadcrumbs={[
           // { label: 'Home', href: '/' },
           {
-            label: 'About Us',
-            href: '/about-us',
+            label: 'Contact Us',
+            href: '/contact-us',
             active: true,
           },
         ]}
       />
       <div className="flex">
-        <div className="flex w-9/12 justify-center">
-          <div className="xl:w-full 2xl:w-10/12">
+        <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">
+          <div className="w-full 2xl:w-10/12">
             <h2
               className={clsx(lusitana.className, 'flex text-xl md:text-3xl')}
             >
