@@ -1,38 +1,45 @@
+import { PostField } from '@/app/lib/definitions';
+import { generatePostSnippet } from '@/app/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-const StandarPost = ({ post }: any) => {
+const StandarPost = ({ post }: { post: PostField }) => {
   return (
-    <div className="mb-4 flex h-48 w-full rounded md:flex-row">
-      <div className="relative h-48 w-4/12">
-        <Image
-          src={`/homes/${post.imageId}.jpg`}
-          fill
-          style={{ objectFit: 'cover' }}
-          alt="Sub-feature post"
-        />
-      </div>
-      <div className="relative h-full w-8/12">
-        <div className="h-full bg-stone-100 px-6 py-4">
-          <span className="hidden text-xs text-green-700 md:block">
-            {post.category}
-          </span>
-          <div className="text-md mb-2 font-semibold text-gray-800 md:mt-0">
-            {post.title}
-          </div>
-          <div>
-            <p className="block p-2 pl-0 pt-1 text-sm text-gray-600">
-              {post.author} | {post.createdOn}
+    <Link href="/read" className="text-sm text-gray-600">
+      <div className="mb-4 flex h-48 w-full rounded md:flex-row">
+        <div className="relative h-48 w-4/12">
+          <Image
+            src={post?.image_url || '/homes/1.jpg'}
+            fill
+            style={{ objectFit: 'cover' }}
+            alt="Sub-feature post"
+          />
+        </div>
+        <div className="relative h-full w-8/12">
+          <div className="flex h-full flex-col justify-center bg-stone-100 px-6 py-4">
+            <span className="my-1 hidden text-xs text-green-700 md:block">
+              {post.category.name}
+            </span>
+            <div className="text-md font-semibold text-gray-800 ">
+              {post.title}
+            </div>
+            <div>
+              <p className="my-1 block text-xs text-gray-600">
+                {post?.user?.name} |{' '}
+                {post.date_created.toISOString().split('T')[0]}
+              </p>
+            </div>
+            <p className="block grow p-2 pl-0 pt-1 text-sm text-gray-600">
+              {generatePostSnippet(post.content)}...
+            </p>
+            <p className="block p-2 pl-0 pt-1 text-right text-sm text-gray-600">
+              Read more...
             </p>
           </div>
-          <p className="block p-2 pl-0 pt-1 text-sm text-gray-600">
-            Wonder matter now can estate esteem assure fat roused. Am performed
-            on existence as discourse is. Pleasure friendly at marriage blessing
-            or
-          </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -10,7 +10,13 @@ export async function fetchPosts() {
       select: {
         id: true,
         title: true,
+        content: true,
+        image_url: true,
         date_created: true,
+        user_id: true,
+        user: true,
+        category_id: true,
+        category: true,
       },
     });
 
@@ -40,8 +46,11 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
         id: true,
         title: true,
         content: true,
+        image_url: true,
         date_created: true,
+        user_id: true,
         user: true,
+        category_id: true,
         category: true,
         // responses: { select: { id: true, status: true } },
       },
@@ -137,7 +146,12 @@ export async function fetchPostById(id: string) {
         id: true,
         title: true,
         content: true,
+        image_url: true,
         date_created: true,
+        user_id: true,
+        user: true,
+        category_id: true,
+        category: true,
       },
     });
 

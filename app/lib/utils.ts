@@ -84,3 +84,32 @@ export function appendSearchParamsToUrl(
   const urlWithParams = `${baseUrl}?${searchParams.toString()}`;
   return urlWithParams;
 }
+
+export function generatePostSnippet(
+  content: string | null | undefined,
+): string {
+  if (content === null || content === undefined) {
+    return '';
+  }
+
+  if (content.length <= 150) {
+    return trimPunctuation(content);
+  }
+
+  const indexOfNextSpace = content.indexOf(' ', 150);
+  let result =
+    indexOfNextSpace === -1
+      ? content.substring(0, 150)
+      : content.substring(0, indexOfNextSpace);
+
+  // Trim any trailing punctuation from the result
+  result = trimPunctuation(result);
+
+  return result;
+}
+
+// Helper function to trim punctuation at the end of a string
+function trimPunctuation(text: string): string {
+  // Regular expression to match trailing punctuation characters
+  return text.replace(/[\,\.\!\?\;\:\"\']+\s*$/, '');
+}

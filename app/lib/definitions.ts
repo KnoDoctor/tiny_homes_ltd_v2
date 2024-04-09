@@ -131,6 +131,21 @@ export type AthleteField = {
   id: string;
   name: string;
 };
+export type CategoyField = {
+  id: string;
+  name: string;
+};
+export type PostField = {
+  id: string;
+  date_created: Date;
+  title: string | null;
+  image_url: string | null;
+  content: string | null;
+  category: CategoyField;
+  user: UserField;
+  category_id: string;
+  user_id: string;
+};
 export type UserField = {
   id: string;
   name: string | null;

@@ -1,12 +1,13 @@
+import { PostField } from '@/app/lib/definitions';
 import Image from 'next/image';
 import React from 'react';
 
-const SubFeaturedPost = ({ post }: any) => {
+const SubFeaturedPost = ({ post }: { post: PostField }) => {
   return (
     <div className="mb-4 flex h-24 w-full rounded md:flex-row">
       <div className="relative h-24 w-4/12">
         <Image
-          src={`/homes/${post.imageId}.jpg`}
+          src={post?.image_url || '/homes/1.jpg'}
           fill
           style={{ objectFit: 'cover' }}
           alt="Sub-feature post"
@@ -15,7 +16,7 @@ const SubFeaturedPost = ({ post }: any) => {
       <div className="relative h-full w-8/12">
         <div className="h-full bg-stone-100 p-2">
           <span className="hidden text-xs text-green-700 md:block">
-            {post.category}
+            {post.category.name}
           </span>
           <div className="text-md mb-2 font-semibold text-gray-800 md:mt-0">
             {post.title}

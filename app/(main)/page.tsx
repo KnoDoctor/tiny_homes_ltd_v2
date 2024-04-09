@@ -73,15 +73,15 @@ export default async function Page() {
                 })}
               </div>
               <div className="relative mt-8 flex w-full flex-col 2xl:hidden 2xl:w-5/12">
-                {samplePosts.map((post: { title: string; imageId: number }) => {
-                  return <StandarPost key={post.imageId} post={post} />;
+                {posts.map((post) => {
+                  return <StandarPost key={post.title} post={post} />;
                 })}
               </div>
             </div>
             <div className="my-8 flex flex-col">
               <div className="relative w-full ">
-                {samplePosts.map((post: { title: string; imageId: number }) => {
-                  return <StandarPost key={post.imageId} post={post} />;
+                {posts.map((post) => {
+                  return <StandarPost key={post.title} post={post} />;
                 })}
               </div>
             </div>

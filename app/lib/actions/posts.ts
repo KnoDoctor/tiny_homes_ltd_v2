@@ -8,6 +8,7 @@ import prisma from '@/prisma/prismaClientInstance';
 export type State = {
   errors?: {
     title?: string[];
+    imageUrl?: string[];
     content?: string[];
     date_created?: string[];
     userId?: string[];
@@ -22,6 +23,9 @@ const PostFormSchema = z.object({
   title: z
     .string({ invalid_type_error: 'Please enter a post title' })
     .min(6, 'The title should be descriptive'),
+  imageUrl: z.string({
+    invalid_type_error: 'Enter an image url.',
+  }),
   content: z.string({
     invalid_type_error: 'Enter some content.',
   }),
@@ -42,6 +46,7 @@ export async function createPost(prevState: State, formData: FormData) {
   // Validate form using Zod
   const validatedFields = CreatePost.safeParse({
     title: formData.get('title'),
+    imageUrl: formData.get('imageUrl'),
     content: formData.get('content'),
     userId: formData.get('userId'),
     categoryId: formData.get('categoryId'),
@@ -56,7 +61,7 @@ export async function createPost(prevState: State, formData: FormData) {
   }
 
   // Prepare data for insertion into the database
-  const { title, content, userId, categoryId } = validatedFields.data;
+  const { title, content, imageUrl, userId, categoryId } = validatedFields.data;
 
   const date = new Date();
 
@@ -65,6 +70,7 @@ export async function createPost(prevState: State, formData: FormData) {
     await prisma.posts.create({
       data: {
         title,
+        image_url: imageUrl,
         content,
         date_created: date,
         user_id: userId,
@@ -92,6 +98,7 @@ export async function updatePost(
 ) {
   const validatedFields = UpdatePost.safeParse({
     title: formData.get('title'),
+    imageUrl: formData.get('imageUrl'),
     content: formData.get('content'),
     userId: formData.get('userId'),
     categoryId: formData.get('categoryId'),
@@ -109,7 +116,7 @@ export async function updatePost(
   }
 
   // Prepare data for insertion into the database
-  const { title, content, userId, categoryId } = validatedFields.data;
+  const { title, content, imageUrl, userId, categoryId } = validatedFields.data;
 
   try {
     await prisma.posts.update({
@@ -118,6 +125,7 @@ export async function updatePost(
       },
       data: {
         title,
+        image_url: imageUrl,
         content,
         user_id: userId,
         category_id: categoryId,
