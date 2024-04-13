@@ -18,16 +18,19 @@ model users {
 }
 
 model posts {
-  id           String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  title        String
-  image_url    String?
-  content      String
-  date_created DateTime
-  user_id      String     @db.Uuid
-  category_id  String     @db.Uuid
-  comments     comments[]
-  user         users      @relation(fields: [user_id], references: [id])
-  category     categories @relation(fields: [category_id], references: [id])
+  id                   String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  title                String
+  image_url            String?
+  content              String
+  date_created         DateTime
+  is_feature           Boolean?
+  is_featured_carousel Boolean?
+  is_sub_feature       Boolean?
+  user_id              String     @db.Uuid
+  category_id          String     @db.Uuid
+  comments             comments[]
+  user                 users      @relation(fields: [user_id], references: [id])
+  category             categories @relation(fields: [category_id], references: [id])
 }
 
 model comments {

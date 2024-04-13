@@ -50,7 +50,7 @@ export default function EditPostForm({
           {/* Post Title */}
           <div className="mb-4">
             <label htmlFor="title" className="mb-2 block text-sm font-medium">
-              Post Title
+              Post title
             </label>
             <div className="relative mt-2 rounded-md">
               <div className="relative">
@@ -82,7 +82,7 @@ export default function EditPostForm({
               htmlFor="imageUrl"
               className="mb-2 block text-sm font-medium"
             >
-              Post Image
+              Post image
             </label>
             <div className="relative mt-2 rounded-md">
               <div className="relative">
@@ -111,7 +111,7 @@ export default function EditPostForm({
           {/* Post Content */}
           <div className="mb-4">
             <label htmlFor="content" className="mb-2 block text-sm font-medium">
-              Post Content
+              Post content
             </label>
             <div className="relative mt-2 rounded-md">
               <div className="relative">
@@ -210,7 +210,84 @@ export default function EditPostForm({
                 ))}
             </div>
           </div>
+          <fieldset>
+            <legend className="mb-4 block text-sm font-medium">
+              Feature post status
+            </legend>
+            {/*Is Feature*/}
+            <div className="mb-4 flex items-center">
+              <input
+                defaultChecked={post.is_feature}
+                id="isFeature"
+                name="isFeature"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 "
+              />
+              <label
+                htmlFor="isFeature"
+                className="ms-2 text-sm font-medium text-gray-900 "
+              >
+                Is Feature Post?
+              </label>
+            </div>
+            <div id="study-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.isFeature &&
+                state.errors.isFeature.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
+            </div>
+            {/*Is Sub Feature*/}
+            <div className="mb-4 flex items-center">
+              <input
+                defaultChecked={post.is_sub_feature}
+                id="isSubFeature"
+                name="isSubFeature"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 "
+              />
+              <label
+                htmlFor="isSubFeature"
+                className="ms-2 text-sm font-medium text-gray-900 "
+              >
+                Is Sub Feature Post?
+              </label>
+            </div>
+            <div id="study-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.isSubFeature &&
+                state.errors.isSubFeature.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
+            </div>
 
+            {/*Is Featured Carousel*/}
+            <div className="mb-4 flex items-center">
+              <input
+                defaultChecked={post.is_featured_carousel}
+                id="isFeaturedCarousel"
+                name="isFeaturedCarousel"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 "
+              />
+              <label
+                htmlFor="isFeaturedCarousel"
+                className="ms-2 text-sm font-medium text-gray-900 "
+              >
+                Is Featured Carousel Post?
+              </label>
+            </div>
+            <div id="study-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.isFeaturedCarousel &&
+                state.errors.isFeaturedCarousel.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
+            </div>
+          </fieldset>
           {/* Post Status
           <fieldset>
             <legend className="mb-2 block text-sm font-medium">

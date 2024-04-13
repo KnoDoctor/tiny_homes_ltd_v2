@@ -9,6 +9,9 @@ export type State = {
   errors?: {
     title?: string[];
     imageUrl?: string[];
+    isFeature?: string[];
+    isSubFeature?: string[];
+    isFeaturedCarousel?: string[];
     content?: string[];
     date_created?: string[];
     userId?: string[];
@@ -26,6 +29,9 @@ const PostFormSchema = z.object({
   imageUrl: z.string({
     invalid_type_error: 'Enter an image url.',
   }),
+  isFeature: z.boolean(),
+  isSubFeature: z.boolean(),
+  isFeaturedCarousel: z.boolean(),
   content: z.string({
     invalid_type_error: 'Enter some content.',
   }),
@@ -33,20 +39,24 @@ const PostFormSchema = z.object({
     invalid_type_error: 'Please select a bias.',
   }),
   userId: z.string({
-    invalid_type_error: 'Please select a bias.',
+    invalid_type_error: 'Please select a user.',
   }),
   categoryId: z.string({
-    invalid_type_error: 'Please select a bias.',
+    invalid_type_error: 'Please select a category.',
   }),
 });
 
 // Use Zod to update the expected types
 const CreatePost = PostFormSchema.omit({ id: true, date_created: true });
+
 export async function createPost(prevState: State, formData: FormData) {
   // Validate form using Zod
   const validatedFields = CreatePost.safeParse({
     title: formData.get('title'),
     imageUrl: formData.get('imageUrl'),
+    isFeature: formData.get('isFeature') === 'on',
+    isSubFeature: formData.get('isSubFeature') === 'on',
+    isFeaturedCarousel: formData.get('isFeaturedCarousel') === 'on',
     content: formData.get('content'),
     userId: formData.get('userId'),
     categoryId: formData.get('categoryId'),
@@ -61,7 +71,16 @@ export async function createPost(prevState: State, formData: FormData) {
   }
 
   // Prepare data for insertion into the database
-  const { title, content, imageUrl, userId, categoryId } = validatedFields.data;
+  const {
+    title,
+    content,
+    imageUrl,
+    isFeature,
+    isSubFeature,
+    isFeaturedCarousel,
+    userId,
+    categoryId,
+  } = validatedFields.data;
 
   const date = new Date();
 
@@ -71,6 +90,9 @@ export async function createPost(prevState: State, formData: FormData) {
       data: {
         title,
         image_url: imageUrl,
+        is_feature: isFeature,
+        is_sub_feature: isSubFeature,
+        is_featured_carousel: isFeaturedCarousel,
         content,
         date_created: date,
         user_id: userId,
@@ -99,6 +121,9 @@ export async function updatePost(
   const validatedFields = UpdatePost.safeParse({
     title: formData.get('title'),
     imageUrl: formData.get('imageUrl'),
+    isFeature: formData.get('isFeature') === 'on',
+    isSubFeature: formData.get('isSubFeature') === 'on',
+    isFeaturedCarousel: formData.get('isFeaturedCarousel') === 'on',
     content: formData.get('content'),
     userId: formData.get('userId'),
     categoryId: formData.get('categoryId'),
@@ -116,7 +141,16 @@ export async function updatePost(
   }
 
   // Prepare data for insertion into the database
-  const { title, content, imageUrl, userId, categoryId } = validatedFields.data;
+  const {
+    title,
+    content,
+    imageUrl,
+    isFeature,
+    isSubFeature,
+    isFeaturedCarousel,
+    userId,
+    categoryId,
+  } = validatedFields.data;
 
   try {
     await prisma.posts.update({
@@ -126,6 +160,9 @@ export async function updatePost(
       data: {
         title,
         image_url: imageUrl,
+        is_feature: isFeature,
+        is_sub_feature: isSubFeature,
+        is_featured_carousel: isFeaturedCarousel,
         content,
         user_id: userId,
         category_id: categoryId,
