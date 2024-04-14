@@ -58,7 +58,7 @@ export default async function Blog({
                 {post?.date_created.toISOString().split('T')[0]}
               </p>
             </div>
-            <div className="mt-4 ">
+            <div className="mdxRemoteWrapper mt-4">
               <MDXRemote source={post?.content || 'No Content'} />
             </div>
           </div>

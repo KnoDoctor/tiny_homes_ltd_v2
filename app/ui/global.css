@@ -98,3 +98,15 @@ input[type='number']::-webkit-outer-spin-button {
   width: 40px;
   height: 20px;
 }
+
+.mdxRemoteWrapper > h1 {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+.mdxRemoteWrapper > h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.mdxRemoteWrapper > p {
+  margin-top: 1.5rem;
+}
