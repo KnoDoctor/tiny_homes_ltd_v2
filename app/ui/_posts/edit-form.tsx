@@ -115,12 +115,13 @@ export default function EditPostForm({
             </label>
             <div className="relative mt-2 rounded-md">
               <div className="relative">
-                <input
+                <textarea
                   id="content"
                   name="content"
-                  type="text"
+                  rows={15}
+                  // type="text"
                   placeholder="Enter post's full content"
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  className="peer block w-full overflow-y-scroll rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                   aria-describedby="amount-error"
                   defaultValue={post.content}
                   // required
@@ -137,7 +138,6 @@ export default function EditPostForm({
                 ))}
             </div>
           </div>
-
           {/* User */}
           <div className="mb-4">
             <label htmlFor="user" className="mb-2 block text-sm font-medium">
@@ -288,6 +288,7 @@ export default function EditPostForm({
                 ))}
             </div>
           </fieldset>
+
           {/* Post Status
           <fieldset>
             <legend className="mb-2 block text-sm font-medium">

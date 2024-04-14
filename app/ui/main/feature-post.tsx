@@ -18,7 +18,7 @@ const FeaturedPost = ({ post }: { post: PostField }) => {
           className="h-64 w-full  object-cover"
         />
       </div>
-      <div className="">
+      <div>
         <span className="mt-4 hidden text-xs text-green-700 md:block">
           {post?.category.name || ''}
         </span>
@@ -28,7 +28,7 @@ const FeaturedPost = ({ post }: { post: PostField }) => {
         <p className="mb-4 text-gray-600">
           {generatePostSnippet(post?.content) || ''}...
         </p>
-        <Link href="/read" className="mt-4">
+        <Link href={`/${post.id}`} className="mt-4">
           <Button className="mt-4 ">
             Read More
             <PaperAirplaneIcon className="ml-4 h-5 w-5 text-gray-50" />
