@@ -140,6 +140,9 @@ export type PostField = {
   date_created: Date;
   title: string | null;
   image_url: string | null;
+  is_feature: boolean | null;
+  is_sub_feature: boolean | null;
+  is_featured_carousel: boolean | null;
   content: string | null;
   category: CategoyField;
   user: UserField;
