@@ -61,7 +61,7 @@ export default function NavLinks() {
         return (
           <div
             key={link.name}
-            className={`${lato.className} flex flex-col items-center justify-center bg-stone-800`}
+            className={`${lato.className} flex w-full flex-col items-center justify-center bg-stone-800`}
           >
             <Link
               href={link.href}
@@ -75,13 +75,17 @@ export default function NavLinks() {
                 },
               )}
             >
-              {link.name === '' ? <LinkIcon className="w-4" /> : <></>}
+              <LinkIcon
+                className={clsx('block w-4', {
+                  'md:hidden': link.name !== '',
+                })}
+              />
               <p className={'hidden md:block'}>{link.name}</p>
             </Link>
             {i + 1 === arr.length ? (
               <></>
             ) : (
-              <hr className="my-1 h-px w-16  border-stone-500 bg-stone-500 dark:bg-gray-700" />
+              <hr className="my-1 hidden h-px w-16 border-stone-500 bg-stone-500 dark:bg-gray-700 md:block" />
             )}
           </div>
         );

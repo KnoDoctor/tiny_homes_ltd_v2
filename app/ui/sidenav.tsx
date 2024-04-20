@@ -16,7 +16,7 @@ export default function SideNav() {
           <AcmeLogo />
         </div>
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0">
+      <div className="flex grow flex-row justify-between  md:flex-col md:space-x-0">
         <NavLinks />
         <div className="hidden h-auto w-full grow  bg-stone-800 md:block"></div>
         {/* <form
