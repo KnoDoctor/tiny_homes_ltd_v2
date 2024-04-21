@@ -16,8 +16,8 @@ const Sidebar = () => {
           >
             Recent posts
           </h2>
-          <hr></hr>
-          <div className="divide-y divide-stone-300">
+          <hr className="my-4 h-px border-0 bg-stone-300"></hr>
+          <div className="divide-y divide-stone-200">
             <div className="px-4 py-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
                 <p
@@ -89,6 +89,7 @@ const Sidebar = () => {
           >
             Recent comments
           </h2>
+          <hr className="my-4 h-px border-0 bg-stone-300"></hr>
           <div className="divide-y divide-stone-300">
             <div className="px-4 py-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
@@ -161,6 +162,7 @@ const Sidebar = () => {
           >
             Archieve
           </h2>
+          <hr className="my-4 h-px border-0 bg-stone-300"></hr>
           <div className="divide-y divide-stone-300">
             <div className="px-4 py-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
