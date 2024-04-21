@@ -99,6 +99,7 @@ input[type='number']::-webkit-outer-spin-button {
   height: 20px;
 }
 
+/*MDX Render Styles*/
 .mdxRemoteWrapper > h1 {
   font-size: 2rem;
   margin-top: 1.5rem;
@@ -107,6 +108,51 @@ input[type='number']::-webkit-outer-spin-button {
   font-size: 1.5rem;
   margin-top: 1.5rem;
 }
+.mdxRemoteWrapper > h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+.mdxRemoteWrapper > blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+.mdxRemoteWrapper > blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+.mdxRemoteWrapper > blockquote > p {
+  display: inline;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
 .mdxRemoteWrapper > p {
   margin-top: 1.5rem;
+}
+.mdxRemoteWrapper > ol {
+  margin-top: 1.5rem;
+  list-style: decimal;
+  list-style-position: inside;
+}
+.mdxRemoteWrapper > ul {
+  margin-top: 1.5rem;
+  list-style: disc;
+  list-style-position: inside;
+}
+.mdxRemoteWrapper > hr {
+  margin-top: 1.5rem;
+}
+.mdxRemoteWrapper p a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+.mdxRemoteWrapper p a:visited {
+  font-weight: 300;
 }

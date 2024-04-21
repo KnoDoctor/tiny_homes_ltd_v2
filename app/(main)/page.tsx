@@ -78,10 +78,7 @@ export default async function Page() {
               </div>
               <div className="relative mt-8 flex w-full flex-col 2xl:hidden 2xl:w-5/12">
                 {posts
-                  .filter(
-                    (post) =>
-                      post.is_feature !== true && post.is_sub_feature !== true,
-                  )
+                  .filter((post) => post.is_sub_feature === true)
                   .map((post) => {
                     return <StandarPost key={post.title} post={post} />;
                   })}
