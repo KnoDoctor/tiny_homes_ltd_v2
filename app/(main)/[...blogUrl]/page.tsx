@@ -4,7 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Breadcrumbs from '@/app/ui/main/breadcrumbs';
 import Sidebar from '@/app/ui/main/sidebar';
 import clsx from 'clsx';
-import { lusitana } from '@/app/ui/fonts';
+import { anticDidone, lusitana, roboto } from '@/app/ui/fonts';
 import { useRouter } from 'next/navigation';
 import { fetchPostById } from '@/app/lib/data/posts';
 import Image from 'next/image';
@@ -24,7 +24,7 @@ export default async function Blog({
   // const res = await fetch('https://...')
   // const markdown = await res.text()
   return (
-    <main className="py-2">
+    <main>
       <Breadcrumbs
         breadcrumbs={[
           // { label: 'Home', href: '/' },
@@ -47,13 +47,29 @@ export default async function Blog({
               />
             </div>
             <div>
-              <span className="mt-4 hidden text-xs text-green-700 md:block">
+              <span
+                className={clsx(
+                  'mt-4 hidden text-base font-light text-green-700 md:block',
+                  `${roboto.className}`,
+                )}
+              >
                 {post?.category.name || ''}
               </span>
-              <h1 className="mb-2 mt-2 text-4xl font-bold leading-tight text-gray-800">
+              <h1
+                className={clsx(
+                  'mb-2 mt-2 text-6xl font-bold leading-tight text-gray-800',
+                  `${anticDidone.className}`,
+                )}
+              >
                 {post?.title || 'Not Feature Selected'}
               </h1>
-              <p className="my-1 block text-xs text-gray-600">
+              <p
+                // className="my-1 block text-xs text-gray-600"
+                className={clsx(
+                  'mt-4 hidden text-base font-light text-gray-600 md:block',
+                  `${roboto.className}`,
+                )}
+              >
                 {post?.user?.name} |{' '}
                 {post?.date_created.toISOString().split('T')[0]}
               </p>

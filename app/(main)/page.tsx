@@ -58,7 +58,7 @@ const samplePosts = [
 export default async function Page() {
   const posts = await fetchPosts();
   return (
-    <main className="py-2">
+    <main>
       <Breadcrumbs breadcrumbs={[]} />
       <div className="flex">
         <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">

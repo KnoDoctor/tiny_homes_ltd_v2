@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const AboutUs = () => {
   return (
-    <main className="py-2">
+    <main>
       <Breadcrumbs
         breadcrumbs={[
           // { label: 'Home', href: '/' },

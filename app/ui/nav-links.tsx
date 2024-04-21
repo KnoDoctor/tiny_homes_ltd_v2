@@ -19,7 +19,7 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { lato } from './fonts';
+import { lato, roboto } from './fonts';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
@@ -66,7 +66,8 @@ export default function NavLinks() {
             <Link
               href={link.href}
               className={clsx(
-                'flex h-[48px] w-full grow items-center justify-center gap-2 bg-stone-800 p-3 text-sm font-medium uppercase hover:bg-stone-800 hover:text-stone-200 md:flex-none md:justify-center md:p-2 md:px-3',
+                'flex h-[48px] w-full grow items-center justify-center gap-2 bg-stone-800 p-3 text-sm  font-medium hover:bg-stone-800 hover:text-stone-200 md:flex-none md:justify-center md:p-2 md:px-3',
+                roboto.className,
                 {
                   'bg-stone-800 text-stone-50': pathname === link.href,
                 },
@@ -80,7 +81,9 @@ export default function NavLinks() {
                   'md:hidden': link.name !== '',
                 })}
               />
-              <p className={'hidden md:block'}>{link.name}</p>
+              <p className={'hidden text-lg font-light md:block'}>
+                {link.name}
+              </p>
             </Link>
             {i + 1 === arr.length ? (
               <></>

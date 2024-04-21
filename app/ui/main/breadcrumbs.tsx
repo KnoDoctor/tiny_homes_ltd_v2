@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
+import { lusitana, roboto } from '@/app/ui/fonts';
 
 import { ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 
@@ -19,10 +19,8 @@ export default function Breadcrumbs({
     <div className="flex">
       <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">
         <div className="w-full 2xl:w-10/12">
-          <nav aria-label="Breadcrumb" className="mb-6 block">
-            <ol
-              className={clsx(lusitana.className, 'flex text-xl md:text-2xl')}
-            >
+          <nav aria-label="Breadcrumb" className="my-4 block">
+            <ol className={clsx(roboto.className, 'flex text-xl font-light')}>
               {breadcrumbs.length === 0 ? (
                 <>
                   <li
