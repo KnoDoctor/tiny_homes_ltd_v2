@@ -23,7 +23,7 @@ const FeaturedPost = ({ post }: { post: PostField }) => {
         <div>
           <span
             className={clsx(
-              'mt-4 hidden text-base font-light text-green-700 md:block',
+              'mt-4 hidden text-sm font-light text-green-700 md:block',
               `${roboto.className}`,
             )}
           >
@@ -31,15 +31,15 @@ const FeaturedPost = ({ post }: { post: PostField }) => {
           </span>
           <h1
             className={clsx(
-              'mb-2 mt-2 text-4xl font-bold leading-tight text-gray-800',
-              `${anticDidone.className}`,
+              'mb-2 mt-2 text-5xl font-bold leading-tight text-gray-800',
+              `${roboto.className}`,
             )}
           >
             {post?.title || 'Not Feature Selected'}
           </h1>
           <p
             className={clsx(
-              'hidden text-base font-light text-gray-600 md:block',
+              'hidden text-sm font-light text-gray-600 md:block',
               `${roboto.className}`,
             )}
           >
@@ -52,6 +52,15 @@ const FeaturedPost = ({ post }: { post: PostField }) => {
             )}
           >
             {generatePostSnippet(post?.content) || ''}...
+          </p>
+          <p
+            // className="block p-2 pl-0 pt-1 text-right text-sm text-gray-600"
+            className={clsx(
+              'mt-4 block hidden p-2 pl-0 pt-1 text-right text-base font-light text-gray-600 md:block',
+              `${roboto.className}`,
+            )}
+          >
+            Read more...
           </p>
         </div>
       </Link>

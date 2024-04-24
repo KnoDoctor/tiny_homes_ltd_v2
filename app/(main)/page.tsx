@@ -64,7 +64,7 @@ export default async function Page() {
         <div className="flex w-full justify-center px-8 lg:w-8/12 2xl:w-9/12">
           <div className="w-full 2xl:w-10/12">
             <div className="mb-8 flex flex-col 2xl:flex-row">
-              <div className="pr-(3 relative w-full 2xl:w-7/12">
+              <div className="relative w-full pr-3 2xl:w-7/12">
                 <FeaturedPost
                   post={posts.filter((post) => post.is_feature === true)?.[0]}
                 />

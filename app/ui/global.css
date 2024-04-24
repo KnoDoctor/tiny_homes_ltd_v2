@@ -103,18 +103,25 @@ input[type='number']::-webkit-outer-spin-button {
 /*MDX Render Styles*/
 .mdxRemoteWrapper > h1 {
   font-size: 3.75rem;
+  line-height: 1.25;
   margin-top: 1.5rem;
-  font-family: 'Antic Didone', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: rgb(31 41 55 / 1);
 }
 .mdxRemoteWrapper > h2 {
   font-size: 2.5rem;
   margin-top: 1.5rem;
-  font-family: 'Antic Didone', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: rgb(31 41 55 / 1);
 }
 .mdxRemoteWrapper > h3 {
   font-size: 1.5rem;
   margin-top: 1.5rem;
-  font-family: 'Antic Didone', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: rgb(31 41 55 / 1);
 }
 .mdxRemoteWrapper > blockquote {
   background: #f9f9f9;

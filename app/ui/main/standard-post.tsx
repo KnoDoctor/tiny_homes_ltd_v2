@@ -22,7 +22,7 @@ const StandarPost = ({ post }: { post: PostField }) => {
           <div className="flex h-full flex-col justify-center bg-stone-100 px-6 py-4">
             <span
               className={clsx(
-                'hidden text-base font-light text-green-700 md:block',
+                'mb-2 hidden text-sm font-light text-green-700 md:block',
                 `${roboto.className}`,
               )}
             >
@@ -31,7 +31,7 @@ const StandarPost = ({ post }: { post: PostField }) => {
             <div
               className={clsx(
                 ' text-3xl font-bold leading-tight text-gray-800',
-                `${anticDidone.className}`,
+                `${roboto.className}`,
               )}
             >
               {post.title}
@@ -39,7 +39,7 @@ const StandarPost = ({ post }: { post: PostField }) => {
             <div>
               <p
                 className={clsx(
-                  'hidden text-base font-light text-gray-600 md:block',
+                  'mt-2 hidden text-sm font-light text-gray-600 md:block',
                   `${roboto.className}`,
                 )}
               >

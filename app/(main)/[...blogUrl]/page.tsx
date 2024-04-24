@@ -49,7 +49,7 @@ export default async function Blog({
             <div>
               <span
                 className={clsx(
-                  'mt-4 hidden text-base font-light text-green-700 md:block',
+                  'mt-4 hidden text-xl font-light text-green-700 md:block',
                   `${roboto.className}`,
                 )}
               >
@@ -58,7 +58,7 @@ export default async function Blog({
               <h1
                 className={clsx(
                   'mb-2 mt-2 text-6xl font-bold leading-tight text-gray-800',
-                  `${anticDidone.className}`,
+                  `${roboto.className}`,
                 )}
               >
                 {post?.title || 'Not Feature Selected'}
@@ -66,7 +66,7 @@ export default async function Blog({
               <p
                 // className="my-1 block text-xs text-gray-600"
                 className={clsx(
-                  'mt-4 hidden text-base font-light text-gray-600 md:block',
+                  'mt-4 hidden text-xl font-light text-gray-600 md:block',
                   `${roboto.className}`,
                 )}
               >

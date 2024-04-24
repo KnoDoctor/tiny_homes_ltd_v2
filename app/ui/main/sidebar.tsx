@@ -10,44 +10,44 @@ const Sidebar = () => {
         <div className="w-full ">
           <h2
             className={clsx(
-              anticDidone.className,
-              'mb-4 flex text-xl font-light md:text-4xl',
+              roboto.className,
+              'my-4 flex text-xl font-bold md:text-3xl',
             )}
           >
             Recent posts
           </h2>
           <hr className="my-4 h-px border-0 bg-stone-300"></hr>
           <div className="divide-y divide-stone-200">
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   A Frame Design Provides A Quiet Space in Lake Tahoe
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Nags Head Packs Modern Luxury Into a Compact THOW
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Braxton Offers A Truly Modern Tiny Living Experience
@@ -55,24 +55,24 @@ const Sidebar = () => {
               </Link>
             </div>
 
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   Downsizing Turns To Upgrading With This Stunning Home
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   This Tiny House on Wheels Offers A Modern and Masculine
@@ -83,44 +83,44 @@ const Sidebar = () => {
           </div>
           <h2
             className={clsx(
-              anticDidone.className,
-              'mb-4 flex text-xl font-light md:text-4xl',
+              roboto.className,
+              'my-4 flex text-xl font-bold md:text-3xl',
             )}
           >
             Recent comments
           </h2>
           <hr className="my-4 h-px border-0 bg-stone-300"></hr>
-          <div className="divide-y divide-stone-300">
-            <div className="px-4 py-4">
+          <div className="divide-y divide-stone-200">
+            <div className="p-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   A Frame Design Provides A Quiet Space in Lake Tahoe
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Nags Head Packs Modern Luxury Into a Compact THOW
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Braxton Offers A Truly Modern Tiny Living Experience
@@ -128,24 +128,24 @@ const Sidebar = () => {
               </Link>
             </div>
 
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   Downsizing Turns To Upgrading With This Stunning Home
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   This Tiny House on Wheels Offers A Modern and Masculine
@@ -156,44 +156,44 @@ const Sidebar = () => {
           </div>
           <h2
             className={clsx(
-              anticDidone.className,
-              'mb-4 flex text-xl font-light md:text-4xl',
+              roboto.className,
+              'my-4 flex text-xl font-bold md:text-3xl',
             )}
           >
             Archieve
           </h2>
           <hr className="my-4 h-px border-0 bg-stone-300"></hr>
-          <div className="divide-y divide-stone-300">
-            <div className="px-4 py-4">
+          <div className="divide-y divide-stone-200">
+            <div className="p-4">
               <Link href="/2021/01/02/a-frame-design-provides-a-quiet-space-in-lake-tahoe/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   A Frame Design Provides A Quiet Space in Lake Tahoe
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Nags Head Packs Modern Luxury Into a Compact THOW
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   The Braxton Offers A Truly Modern Tiny Living Experience
@@ -201,24 +201,24 @@ const Sidebar = () => {
               </Link>
             </div>
 
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   Downsizing Turns To Upgrading With This Stunning Home
                 </p>
               </Link>
             </div>
-            <div className="px-4 py-4">
+            <div className="p-4">
               <Link href="/">
                 <p
                   className={clsx(
                     roboto.className,
-                    'mb-4 flex text-xl font-light',
+                    'flex text-base font-light',
                   )}
                 >
                   This Tiny House on Wheels Offers A Modern and Masculine
