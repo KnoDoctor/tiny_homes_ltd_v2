@@ -8,6 +8,7 @@ import { anticDidone, lusitana, roboto } from '@/app/ui/fonts';
 import { useRouter } from 'next/navigation';
 import { fetchPostById } from '@/app/lib/data/posts';
 import Image from 'next/image';
+import PhotoGallery from '@/app/ui/main/photo-gallery';
 
 export default async function Blog({
   params,
@@ -77,6 +78,7 @@ export default async function Blog({
             <div className="mdxRemoteWrapper mt-4">
               <MDXRemote source={post?.content || 'No Content'} />
             </div>
+            <PhotoGallery postId={postId} />
           </div>
         </div>
         <Sidebar />
