@@ -50,7 +50,9 @@ function createMasonryGrid(
 }
 
 const PhotoGallery = async ({ postId }: { postId: string }) => {
-  const imagesRes = await fetch(`http:localhost:3000/api/cloudinary/${postId}`);
+  const imagesRes = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_BASE_URL}/api/cloudinary/${postId}`,
+  );
   const imagesData = await imagesRes.json();
   const masonryGrid = createMasonryGrid(imagesData.assetsByTag.resources);
 
