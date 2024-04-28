@@ -10,7 +10,7 @@ export async function fetchPosts() {
       select: {
         id: true,
         title: true,
-        slug:true,
+        slug: true,
         content: true,
         image_url: true,
         is_feature: true,
@@ -49,7 +49,7 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
       select: {
         id: true,
         title: true,
-        slug:true,
+        slug: true,
         content: true,
         image_url: true,
         is_feature: true,
@@ -153,7 +153,38 @@ export async function fetchPostById(id: string) {
       select: {
         id: true,
         title: true,
-        slug:true,
+        slug: true,
+        content: true,
+        image_url: true,
+        is_feature: true,
+        is_sub_feature: true,
+        is_featured_carousel: true,
+        date_created: true,
+        user_id: true,
+        user: true,
+        category_id: true,
+        category: true,
+      },
+    });
+
+    return post;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch post by ID.');
+  }
+}
+
+export async function fetchPostBySlug(slug: string) {
+  noStore();
+  try {
+    const post = await prisma.posts.findUnique({
+      where: {
+        slug,
+      },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
         content: true,
         image_url: true,
         is_feature: true,

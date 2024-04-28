@@ -113,3 +113,11 @@ function trimPunctuation(text: string): string {
   // Regular expression to match trailing punctuation characters
   return text.replace(/[\,\.\!\?\;\:\"\']+\s*$/, '');
 }
+
+export function generatePostUrl(postSlug: string, createdOn: Date): string {
+  const year = createdOn.getUTCFullYear().toString();
+  const month = (createdOn.getUTCMonth() + 1).toString().padStart(2, '0'); // getMonth() is zero-based
+  const day = createdOn.getUTCDate().toString().padStart(2, '0');
+
+  return `/${year}/${month}/${day}/${postSlug}`;
+}

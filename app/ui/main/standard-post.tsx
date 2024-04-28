@@ -1,5 +1,5 @@
 import { PostField } from '@/app/lib/definitions';
-import { generatePostSnippet } from '@/app/lib/utils';
+import { generatePostSnippet, generatePostUrl } from '@/app/lib/utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { anticDidone, roboto } from '../fonts';
 
 const StandarPost = ({ post }: { post: PostField }) => {
   return (
-    <Link href={`/${post.id}`}>
+    <Link href={generatePostUrl(post.slug, post.date_created)}>
       <div className="mb-4 flex w-full rounded md:flex-row">
         <div className="relative  w-4/12">
           <Image

@@ -4,10 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { anticDidone, roboto } from '../fonts';
+import { generatePostUrl } from '@/app/lib/utils';
 
 const SubFeaturedPost = ({ post }: { post: PostField }) => {
   return (
-    <Link href={`/${post.id}`}>
+    <Link href={generatePostUrl(post.slug, post.date_created)}>
       <div className=" mb-4 flex w-full rounded md:flex-row">
         <div className="relative w-3/12">
           <Image

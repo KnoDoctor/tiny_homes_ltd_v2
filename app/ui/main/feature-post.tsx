@@ -4,14 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { PostField } from '@/app/lib/definitions';
-import { generatePostSnippet } from '@/app/lib/utils';
+import { generatePostSnippet, generatePostUrl } from '@/app/lib/utils';
 import clsx from 'clsx';
 import { anticDidone, roboto } from '../fonts';
 
 const FeaturedPost = ({ post }: { post: PostField }) => {
   return (
     <div className="md:w-4/7 relative mb-4 block flex w-full flex-col pr-4 lg:mb-0">
-      <Link href={`/${post.id}`}>
+      <Link href={generatePostUrl(post.slug, post.date_created)}>
         <div className="relative h-64">
           <Image
             src={post?.image_url || '/homes/2.jpg'}

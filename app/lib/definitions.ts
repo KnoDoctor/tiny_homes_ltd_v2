@@ -139,7 +139,7 @@ export type PostField = {
   id: string;
   date_created: Date;
   title: string | null;
-  slug: string | null;
+  slug: string;
   image_url: string | null;
   is_feature: boolean | null;
   is_sub_feature: boolean | null;

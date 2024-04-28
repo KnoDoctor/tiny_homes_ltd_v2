@@ -4,6 +4,7 @@ import { anticDidone, lusitana, roboto } from '../fonts';
 import clsx from 'clsx';
 import { fetchPosts } from '@/app/lib/data/posts';
 import { PostField } from '@/app/lib/definitions';
+import { generatePostUrl } from '@/app/lib/utils';
 
 const Sidebar = async () => {
   const posts = await fetchPosts();
@@ -27,7 +28,7 @@ const Sidebar = async () => {
               .map((post: PostField) => {
                 return (
                   <div className="p-4" key={post.id}>
-                    <Link href={`/${post.id}`}>
+                    <Link href={generatePostUrl(post.slug, post.date_created)}>
                       <p
                         className={clsx(
                           roboto.className,
@@ -56,7 +57,7 @@ const Sidebar = async () => {
               .map((post: PostField) => {
                 return (
                   <div className="p-4" key={post.id}>
-                    <Link href={`/${post.id}`}>
+                    <Link href={generatePostUrl(post.slug, post.date_created)}>
                       <p
                         className={clsx(
                           roboto.className,
@@ -85,7 +86,7 @@ const Sidebar = async () => {
               .map((post: PostField) => {
                 return (
                   <div className="p-4" key={post.id}>
-                    <Link href={`/${post.id}`}>
+                    <Link href={generatePostUrl(post.slug, post.date_created)}>
                       <p
                         className={clsx(
                           roboto.className,

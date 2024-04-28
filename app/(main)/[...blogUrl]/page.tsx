@@ -6,7 +6,7 @@ import Sidebar from '@/app/ui/main/sidebar';
 import clsx from 'clsx';
 import { anticDidone, lusitana, roboto } from '@/app/ui/fonts';
 import { useRouter } from 'next/navigation';
-import { fetchPostById } from '@/app/lib/data/posts';
+import { fetchPostById, fetchPostBySlug } from '@/app/lib/data/posts';
 import Image from 'next/image';
 import PhotoGallery from '@/app/ui/main/photo-gallery';
 
@@ -15,15 +15,10 @@ export default async function Blog({
 }: {
   params: { blogUrl: string[] };
 }) {
-  const postId = params?.blogUrl?.[0];
+  const postSlug = params?.blogUrl?.[params?.blogUrl?.length - 1];
 
-  const post = await fetchPostById(postId);
+  const post = await fetchPostBySlug(postSlug);
 
-  // MDX text - can be from a local file, database, CMS, fetch, anywhere...
-  // const markdown = 'Some **mdx** text, with a component';
-
-  // const res = await fetch('https://...')
-  // const markdown = await res.text()
   return (
     <main>
       <Breadcrumbs
@@ -78,7 +73,7 @@ export default async function Blog({
             <div className="mdxRemoteWrapper mt-4">
               <MDXRemote source={post?.content || 'No Content'} />
             </div>
-            <PhotoGallery postId={postId} />
+            <PhotoGallery postSlug={postSlug} />
           </div>
         </div>
         <Sidebar />
