@@ -10,6 +10,7 @@ export async function fetchPosts() {
       select: {
         id: true,
         title: true,
+        slug:true,
         content: true,
         image_url: true,
         is_feature: true,
@@ -48,6 +49,7 @@ export async function fetchFilteredPosts(query: string, currentPage: number) {
       select: {
         id: true,
         title: true,
+        slug:true,
         content: true,
         image_url: true,
         is_feature: true,
@@ -151,6 +153,7 @@ export async function fetchPostById(id: string) {
       select: {
         id: true,
         title: true,
+        slug:true,
         content: true,
         image_url: true,
         is_feature: true,

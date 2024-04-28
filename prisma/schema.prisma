@@ -19,6 +19,7 @@ model users {
 
 model posts {
   id                   String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  slug                 String     @unique
   title                String
   image_url            String?
   content              String

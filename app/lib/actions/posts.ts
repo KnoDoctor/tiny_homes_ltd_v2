@@ -8,6 +8,7 @@ import prisma from '@/prisma/prismaClientInstance';
 export type State = {
   errors?: {
     title?: string[];
+    slug?: string[];
     imageUrl?: string[];
     isFeature?: string[];
     isSubFeature?: string[];
@@ -26,6 +27,9 @@ const PostFormSchema = z.object({
   title: z
     .string({ invalid_type_error: 'Please enter a post title' })
     .min(6, 'The title should be descriptive'),
+  slug: z.string({
+    invalid_type_error: 'Enter a post slug.',
+  }),
   imageUrl: z.string({
     invalid_type_error: 'Enter an image url.',
   }),
@@ -53,6 +57,7 @@ export async function createPost(prevState: State, formData: FormData) {
   // Validate form using Zod
   const validatedFields = CreatePost.safeParse({
     title: formData.get('title'),
+    slug: formData.get('slug'),
     imageUrl: formData.get('imageUrl'),
     isFeature: formData.get('isFeature') === 'on',
     isSubFeature: formData.get('isSubFeature') === 'on',
@@ -73,6 +78,7 @@ export async function createPost(prevState: State, formData: FormData) {
   // Prepare data for insertion into the database
   const {
     title,
+    slug,
     content,
     imageUrl,
     isFeature,
@@ -89,6 +95,7 @@ export async function createPost(prevState: State, formData: FormData) {
     await prisma.posts.create({
       data: {
         title,
+        slug,
         image_url: imageUrl,
         is_feature: isFeature,
         is_sub_feature: isSubFeature,
@@ -120,6 +127,7 @@ export async function updatePost(
 ) {
   const validatedFields = UpdatePost.safeParse({
     title: formData.get('title'),
+    slug: formData.get('slug'),
     imageUrl: formData.get('imageUrl'),
     isFeature: formData.get('isFeature') === 'on',
     isSubFeature: formData.get('isSubFeature') === 'on',
@@ -143,6 +151,7 @@ export async function updatePost(
   // Prepare data for insertion into the database
   const {
     title,
+    slug,
     content,
     imageUrl,
     isFeature,
@@ -159,6 +168,7 @@ export async function updatePost(
       },
       data: {
         title,
+        slug,
         image_url: imageUrl,
         is_feature: isFeature,
         is_sub_feature: isSubFeature,
