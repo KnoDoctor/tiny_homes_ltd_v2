@@ -4,9 +4,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Breadcrumbs from '@/app/ui/main/breadcrumbs';
 import Sidebar from '@/app/ui/main/sidebar';
 import clsx from 'clsx';
-import { anticDidone, lusitana, roboto } from '@/app/ui/fonts';
-import { useRouter } from 'next/navigation';
-import { fetchPostById, fetchPostBySlug } from '@/app/lib/data/posts';
+import { roboto } from '@/app/ui/fonts';
+import { fetchPostBySlug } from '@/app/lib/data/posts';
 import Image from 'next/image';
 import PhotoGallery from '@/app/ui/main/photo-gallery';
 
@@ -23,7 +22,6 @@ export default async function Blog({
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          // { label: 'Home', href: '/' },
           {
             label: post?.title || '',
             href: post?.id || '/',
@@ -73,6 +71,7 @@ export default async function Blog({
             <div className="mdxRemoteWrapper mt-4">
               <MDXRemote source={post?.content || 'No Content'} />
             </div>
+
             <PhotoGallery postSlug={postSlug} />
           </div>
         </div>

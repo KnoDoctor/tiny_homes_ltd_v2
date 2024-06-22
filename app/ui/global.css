@@ -153,7 +153,8 @@ input[type='number']::-webkit-outer-spin-button {
 .mdxRemoteWrapper > p > img {
   margin: auto;
   max-height: 500px;
-  width: 80%;
+  max-width: 800px;
+  width: 100%;
   object-fit: cover;
 }
 .mdxRemoteWrapper > ol {

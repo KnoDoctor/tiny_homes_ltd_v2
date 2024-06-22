@@ -1,4 +1,5 @@
 import React from 'react';
+import PhotoCarousel from './photo-carousel';
 
 type Image = {
   asset_id: string;
@@ -57,28 +58,36 @@ const PhotoGallery = async ({ postSlug }: { postSlug: string }) => {
   const masonryGrid = createMasonryGrid(imagesData.assetsByTag.resources);
 
   return (
-    <div className="my-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-      {masonryGrid.map((column, i) => {
-        return (
+    <>
+      <div className="my-8 hidden grid-cols-3 gap-4 md:grid">
+        {masonryGrid.map((column, i) => (
           <div key={i} className="grid gap-4">
-            {column.column.map((photo, i) => {
-              return (
-                <div key={i}>
-                  <img
-                    className="h-full max-w-full object-cover"
-                    src={
-                      photo.src ||
-                      'https://res.cloudinary.com/drndixnsw/image/upload/v1713722674/Quiet-Space-House-A-Frame-_1_p2e0db.jpg'
-                    }
-                    alt={photo.alt}
-                  />
-                </div>
-              );
-            })}
+            {column.column.map((photo, j) => (
+              <PhotoCarousel
+                key={j}
+                photo={photo}
+                masonryGrid={masonryGrid}
+                i={i}
+                j={j}
+              />
+            ))}
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+      <div className="my-8 grid grid-cols-1 gap-4 md:hidden">
+        {imagesData.assetsByTag.resources.map((photo: Image, i: number) => (
+          <div key={i} className="grid">
+            <img
+              className="h-full max-w-full object-cover"
+              src={
+                photo.secure_url ||
+                'https://res.cloudinary.com/drndixnsw/image/upload/v1713722674/Quiet-Space-House-A-Frame-_1_p2e0db.jpg'
+              }
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
